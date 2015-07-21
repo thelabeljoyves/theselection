@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Homepage of artist Yves Mettler</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% block style %}
+    <style>
+      body {background-color:#FF6; }
+    </style>
+{% endblock style %}
+</head>
+
+<body>
+
+<!-- Menu -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr class="menu">
+    <td style="width:30%; background-color:#FFF"><a class="menu" href="{% url 'show' %}">show</a>
+    <br /><span class="submenu">shows & works</span></td>
+    <td style="width:30%"><a class="menu" href="{% url 'research' %}">research</a>
+    <br /><span class="submenu">research blog</span></td>
+    <td style="width:30%"><a class="menu" href="{% url 'reviews' %}">reviews</a>
+    <br /><span class="submenu">events, workshops, collaborations, ...</span></td>
+    <td style="width:30%"><a class="menu" href="{% url 'resources' %}">resources</a>
+    <br /><span class="submenu">contact, bio, publications, ...</span></td>
+  </tr>
+  
+<!-- Content -->
+  <tr>
+<!-- Main -->
+   {% block main %}
+    <td style="background-color:#FFF; vertical-align:top" colspan="3">
+        Some content here...
+    </td>
+   {% endblock main %}
+
+<!-- Sidebar -->
+  {% block sidebar %}
+    <td style="width:290px; text-align:right; vertical-align:top">
+        <div id="tweetbox"></div>
+    </td>
+  {% endblock sidebar %}
+  </tr>
+</table>
+</body>
+</html>
