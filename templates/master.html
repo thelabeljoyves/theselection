@@ -18,17 +18,18 @@
 <!-- Menu -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
+{% with request.resolver_match.url_name as url_name %}
   <tr class="menu">
-    <td style="width:30%; background-color:#FFF"><a class="menu" href="{% url 'show' %}">show</a>
+    <td style="width:30%{% if url_name == 'show' %}; background-color:#FFF{% endif %}"><a class="menu" href="{% url 'show' %}">show</a>
     <br /><span class="submenu">shows & works</span></td>
-    <td style="width:30%"><a class="menu" href="{% url 'research' %}">research</a>
+    <td style="width:30%{% if url_name == 'research' %}; background-color:#FFF{% endif %}"><a class="menu" href="{% url 'research' %}">research</a>
     <br /><span class="submenu">research blog</span></td>
-    <td style="width:30%"><a class="menu" href="{% url 'reviews' %}">reviews</a>
+    <td style="width:30%{% if url_name == 'reviews' %}; background-color:#FFF{% endif %}"><a class="menu" href="{% url 'reviews' %}">reviews</a>
     <br /><span class="submenu">events, workshops, collaborations, ...</span></td>
-    <td style="width:30%"><a class="menu" href="{% url 'resources' %}">resources</a>
+    <td style="width:30%{% if url_name == 'resources' %}; background-color:#FFF{% endif %}"><a class="menu" href="{% url 'resources' %}">resources</a>
     <br /><span class="submenu">contact, bio, publications, ...</span></td>
   </tr>
-  
+{% endwith %}
 <!-- Content -->
   <tr>
 <!-- Main -->
@@ -44,6 +45,14 @@
         <div id="tweetbox"></div>
     </td>
   {% endblock sidebar %}
+  </tr>
+  <tr>
+      {% block footer %}
+      <td>
+          <hr />
+          Some footer here
+      </td>
+      {% endblock footer %}
   </tr>
 </table>
 </body>
