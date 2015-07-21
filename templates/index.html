@@ -1,4 +1,5 @@
 {% extends 'master.html' %}
+{% load staticfiles %}
 
 {% block style %}
     <style>
@@ -10,7 +11,7 @@
     <td style="background-color:#FFF; vertical-align:top" colspan="3">
     
 	
-	<div class="img" style="background-image:url(pic/show/pic_et_terre/2-brise-lame2.JPG); background-size:cover">
+	<div class="img" style="background-image:url({% static 'pic/show/pic_et_terre/2-brise-lame2.JPG' %}); background-size:cover">
   		<div class="desc">
   		<a  target="_blank" href="klematis_big.htm">
         Title <br />
@@ -19,7 +20,7 @@
     </div>
     
     <a  target="_blank" href="klematis_big.htm">
-    <div class="img" style="background-image:url(pic/show/pic_et_terre/9-rsi.JPG); background-size:cover">
+    <div class="img" style="background-image:url({% static 'pic/show/pic_et_terre/9-rsi.JPG' %}); background-size:cover">
   		<div class="desc">
   		  <p>
   		    Title <br />
