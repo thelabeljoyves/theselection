@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^research', TemplateView.as_view(template_name="research.html"), name="research"),
     url(r'^resources', TemplateView.as_view(template_name="resources.html"), name="resources"),
     url(r'^review', TemplateView.as_view(template_name="reviews.html"), name="reviews"),
-    url(r'$', TemplateView.as_view(template_name="index.html")),
+    url(r'^$', TemplateView.as_view(template_name="index.html"), name="show"),
 ]
