@@ -55,7 +55,7 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'Europe/Zurich'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -150,7 +150,14 @@ INSTALLED_APPS = (
     'djangocms_inherit',
     'djangocms_link',
     'reversion',
-    'web'
+    'web',
+    'djangocms_blog',
+    'aldryn_apphooks_config',
+    'parler',
+    'taggit',
+    'taggit_autosuggest',
+    'meta',
+    'meta_mixin'
 )
 
 LANGUAGES = (
@@ -158,6 +165,7 @@ LANGUAGES = (
     ('en', gettext('en')),
     ('de', gettext('de')),
     ('fr', gettext('fr')),
+    ('it', gettext('it')),
 )
 
 CMS_LANGUAGES = {
@@ -176,17 +184,24 @@ CMS_LANGUAGES = {
             'redirect_on_fallback': True,
         },
         {
-            'public': True,
+            'public': False,
             'code': 'de',
             'hide_untranslated': False,
             'name': gettext('de'),
             'redirect_on_fallback': True,
         },
         {
-            'public': True,
+            'public': False,
             'code': 'fr',
             'hide_untranslated': False,
             'name': gettext('fr'),
+            'redirect_on_fallback': True,
+        },
+        {
+            'public': False,
+            'code': 'it',
+            'hide_untranslated': False,
+            'name': gettext('it'),
             'redirect_on_fallback': True,
         },
     ],
