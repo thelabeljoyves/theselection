@@ -1,0 +1,22 @@
+var r_text = new Array ();
+r_text[0] = "europaplads";
+r_text[1] = "europaplatz";
+r_text[2] = "europe square";
+r_text[3] = "plaza de europa";
+r_text[4] = "place de l'europe";
+r_text[5] = "piazza europe";
+r_text[6] = "europaplein";
+r_text[7] = "praça europa";
+r_text[8] = "europalinnen aukio";
+r_text[9] = "europa torget";
+r_text[10] = "evrope namisti";
+r_text[11] = "europa väljak";
+r_text[12] = "eiropa laukums";
+r_text[13] = "europos aikste";
+r_text[14] = "europa ter";
+r_text[15] = "post ewropea";
+r_text[19] = "plac europy";
+r_text[20] = "namestie europy";
+r_text[21] = "trg evropa";
+var i = Math.floor(21*Math.random())
+document.write(r_text[i]);
