@@ -157,7 +157,8 @@ INSTALLED_APPS = (
     'taggit',
     'taggit_autosuggest',
     'meta',
-    'meta_mixin'
+    'meta_mixin',
+    'theselection'
 )
 
 LANGUAGES = (
