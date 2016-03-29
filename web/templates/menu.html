@@ -6,7 +6,7 @@
         ">
             <a class="menu" href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
                         <br />
-                        <span class="submenu">works &amp; views</span>
+                        <span class="submenu">{{ child.subtitle }}</span>
     </td>
     {% if class and forloop.last and not forloop.parentloop %}{% endif %}
 {% endfor %}
