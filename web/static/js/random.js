@@ -18,5 +18,5 @@ r_text[15] = "post ewropea";
 r_text[19] = "plac europy";
 r_text[20] = "namestie europy";
 r_text[21] = "trg evropa";
-var i = Math.floor(21*Math.random())
-document.write(r_text[i]);
+var i = Math.floor(21*Math.random());
+$('a.7').text(r_text[i]);

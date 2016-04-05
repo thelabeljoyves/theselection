@@ -1,0 +1,18 @@
+ {% load i18n %}{% spaceless %}
+<div id="tagcloud">
+<span class="tag">tags</span>
+<div class="blogtags">
+{% for tag in tags %}
+<a class="blogtagcloudlink" href="{% url 'djangocms_blog:posts-tagged' tag=tag.slug %}">
+{{ tag.name }}
+    <span>{% if tag.count > 0 %}
+        {% blocktrans count articles=tag.count %}1{% plural %}{{ articles }}{% endblocktrans %}
+{% else %}{% trans "0 articles" %}{% endif %}-</span>
+</a>
+
+{% empty %}
+<li class="blog-empty"><p>{% trans "No article found." %}</p></li>
+{% endfor %}
+</div>
+</div>
+{% endspaceless %}

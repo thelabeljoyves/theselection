@@ -4,7 +4,7 @@
 
 body {
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-right: 24px;
 	margin-bottom: 10px;
 }
@@ -323,6 +323,50 @@ a.bloglink:active {
 
 
 
+a.blogtagcloudlink:link {
+	color:#4D778F;
+	text-decoration:none;
+}
+
+a.blogtagcloudlink:visited {
+	color:#4D778F;
+	text-decoration:none;
+}
+
+a.blogtagcloudlink:hover {
+	color:#4D778F;
+	text-decoration:underline;
+}
+
+a.blogtagcloudlink:active {
+	color:#4D778F;
+	text-decoration:none;
+}
+
+
+
+
+a.blogtitllink:link {
+	color:#000;
+	text-decoration:none;
+}
+
+a.blogtitllink:visited {
+	color:#000;
+	text-decoration:none;
+}
+
+a.blogtitllink:hover {
+	color:#4D778F;
+	text-decoration:none;
+}
+
+a.blogtitllink:active {
+	color:#4D778F;
+	text-decoration:none;
+}
+
+
 
 a.postlink:link {
 	color:#4D778F;
@@ -448,6 +492,7 @@ a.externlink[href^="https://"]:after {
 
 .menutable {
 	width: 100%;
+	height: 70px;
 	padding: 0px;
 	border: 0px;
 	padding:0px;
@@ -578,6 +623,11 @@ a.externlink[href^="https://"]:after {
 	font-size:22px;
 }
 
+.catitem {
+	font-family:acid-med;
+	font-size:18px;
+}
+
 .entrypage {
 	text-align:center;
 	font-family:acid-med;
@@ -632,7 +682,12 @@ a.externlink[href^="https://"]:after {
 	text-align: left;
 	font-family:acid-med;
 	font-size: 16px;
-}	
+}
+
+.blogtags {
+	font-family:acid-med;
+	font-size:16px;
+}
 
 .bluespacerblog {
 	height:50px;
@@ -919,4 +974,13 @@ a.externlink[href^="https://"]:after {
 	font-family:recta;
 	font-size:16px;
 	height: 30px;
+}
+
+/* correction bootstrap css------------------------------------------------ */
+.container {
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
 }

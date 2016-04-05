@@ -1,0 +1,41 @@
+{% load i18n thumbnail cms_tags %}
+
+<div id="post-{{ post.slug }}" class="blogentry">
+
+    <span class="entrydate">{{ post.date_published|date:"DATE_FORMAT" }}</span>
+        {% if post.categories.exists %} -
+            {% for category in post.categories.all %}
+            {% if category.slug %}
+               <span class="entrydate bloglink"><a href="{% url 'djangocms_blog:posts-category' category=category.slug %}" class="entrydate bloglink">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}</span>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    <div class="entrytitle"><a class="blogtitllink" href="{{ post.get_absolute_url }}">{{ post.title }}.</a></div>
+
+
+   {% if image and post.main_image %}
+       <div class="entrythumb">
+           {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
+           <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+       </div>
+   {% endif %}
+
+    <div class="entryintro">
+       {% if not TRUNCWORDS_COUNT %}
+           {% render_model post "abstract" %}
+       {% else %}
+           {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
+           <a class="bloglink" href="{{ post.get_absolute_url }}"> more...</a>
+       {% endif %}
+    </div>
+
+    {% if post.tags.exists %}
+        <p class="entrywords">Tags:
+            {% for tag in post.tags.all %}
+            <a href="{% url 'djangocms_blog:posts-tagged' tag=tag.slug %}" class="bloglink">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}</p>
+    {% endif %}
+
+
+</div>

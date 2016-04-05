@@ -1,0 +1,18 @@
+{% load i18n thumbnail cms_tags %}
+
+<div class="grid-item" id="post-{{ post.slug }}">
+   <div class="inside-item">
+       <p class="resumtitle">{{ post.title }}</p>
+
+       {% if image and post.main_image %}
+       <div class="blog-visual">
+           <img src="{{ post.main_image.url }}" alt="{{ post.main_image.default_alt_text }}" height="auto" width="100%" />
+       </div>
+       {% endif %}
+
+       <div class="resumtxt">
+           {% render_model post "abstract" %}
+       </div>
+   </div>
+
+</div>
