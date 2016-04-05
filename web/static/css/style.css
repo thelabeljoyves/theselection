@@ -4,7 +4,7 @@
 
 body {
 	margin-left: 20px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-right: 24px;
 	margin-bottom: 10px;
 }
@@ -62,8 +62,8 @@ src: url(../fonts/recta-lite.otf);
 
 /*Media Queries*/
 
-@media only screen and (max-width : 1490px),
-only screen and (max-device-width : 1490px){
+@media only screen and (max-width : 1990px),
+only screen and (max-device-width : 1990px){
 /* MQ for resume*/
 .grid-item {
  width: 25%;
