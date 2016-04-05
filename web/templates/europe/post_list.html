@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% load i18n thumbnail staticfiles%}{% spaceless %}
+{% extends "djangocms_blog/base.html" %}
+{% load i18n thumbnail cms_tags staticfiles%}{% spaceless %}
 
 {% block canonical_url %}
     <link rel="canonical" href="{{ view.get_view_url }}"/>
@@ -20,5 +20,5 @@
 
 {% block js %}
 <script src='http://masonry.desandro.com/masonry.pkgd.js'></script>
-<script src="{% static 'js/masonry-resume.js' %}"></script>
+<script src="{% static 'js/masonry-eurosquare.js' %}"></script>
 {% endblock %}
