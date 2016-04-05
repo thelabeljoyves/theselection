@@ -2,24 +2,24 @@
 
 <div id="post-{{ post.slug }}" class="eurogrid-item">
    <div class="euroinside-item">
-    <a class="eurotitle europtitllink" href="{{ post.get_absolute_url }}">{{ post.title }}</a><br />
+        <a class="eurotitle europtitllink" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
 
 
 
-   {% if image and post.main_image %}
-   <div class="euroimg">
-       {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
-       <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
-   </div>
-   {% endif %}
-   <div class="eurobody">
-       {% if not TRUNCWORDS_COUNT %}
-           {% render_model post "abstract" %}
-       {% else %}
-           {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
+       {% if image and post.main_image %}
+       <div class="euroimg">
+           {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
+           <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+       </div>
        {% endif %}
-   </div>
-
+       <div class="eurobody">
+           {% if not TRUNCWORDS_COUNT %}
+               {% render_model post "abstract" %}
+           {% else %}
+               {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
+           {% endif %}
+       </div>
+    </div>
 
 </div>
 
