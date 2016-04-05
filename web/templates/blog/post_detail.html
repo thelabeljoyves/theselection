@@ -9,53 +9,51 @@
 {% block content_blog %}{% spaceless %}
 
     <!-- Fbook button script // And I still believe facebook would better help the world by paying its due taxes, worldwide -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 <div id="postpage">
     <div id="postpage">
-    <div id="post" id="post-{{ post.slug }}" >
-    <div class="postentry">
-        <span class="entrydate">{{ post.date_published|date:"DATE_FORMAT" }}</span>
-        {% if post.categories.exists %} -
+        <div id="post" id="post-{{ post.slug }}" >
+            <div class="postentry">
+            <span class="entrydate">{{ post.date_published|date:"DATE_FORMAT" }}</span>
+            {% if post.categories.exists %} -
             {% for category in post.categories.all %}
-           {% if category.slug %}
+            {% if category.slug %}
                <span class="entrydate bloglink"><a href="{% url 'djangocms_blog:posts-category' category=category.slug %}" class="entrydate bloglink">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}</span>
-           {% endif %}
-        {% endfor %}
-        {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
 
-        <div class="posttitle">{{ post.title }}</div>
+            <div class="posttitle">{{ post.title }}</div>
 
-        {% if image and post.main_image %}
-            <div class="entrythumb">
-            {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
-            <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
-            </div>
-        {% endif %}
+            {% if post.main_image %}
+                <div class="blog-visual">
+                <img src="{{ post.main_image.url }}" alt="{{ post.main_image.default_alt_text }}" height="auto" width="100%" />
+                </div>
+            {% endif %}
 
         <div class="postbody">
             {% render_model post "abstract" %}
         </div>
 
 
-        <p class="postwords">
+        <div class="postwords">
         {% if post.tags.exists %}
-             <p class="entrywords">Tags:
+             <div class="entrywords">Tags:
                 {% for tag in post.tags.all %}
                     <a href="{% url 'djangocms_blog:posts-tagged' tag=tag.slug %}" class="bloglink">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
         {% endfor %}
-        {% endif %}
-            <br />
+        {% endif %}</div>
             related galleries: <a class="postlink" href="index.html">Brise-Lame (corrugated steel version)</a>
-        </p>
-
+        </div>&nbsp;<br />
 
 
         <div class="postbutton">

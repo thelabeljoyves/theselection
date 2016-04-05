@@ -1,5 +1,5 @@
 {% extends "djangocms_blog/base.html" %}
-{% load i18n thumbnail cms_tags staticfiles%}{% spaceless %}
+{% load i18n thumbnail cms_tags staticfiles %}{% spaceless %}
 
 {% block canonical_url %}
     <link rel="canonical" href="{{ view.get_view_url }}"/>
@@ -7,6 +7,10 @@
 
 {% block content_blog %}
 <div class="eurogrid">
+
+    <div class="eurointro">
+    The project Europe Square has become an ongoing process of research and interventopn about city squares called "Europe Square".
+    </div>
 
     {% for post in post_list %}
         {% include "europe/blog_item.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}

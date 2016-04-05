@@ -7,24 +7,84 @@
 {% block title %}{{ post.get_title }}{% endblock %}
 
 {% block content_blog %}{% spaceless %}
-<article id="post-{{ post.slug }}" class="post-item post-detail">
-    <header>
-        <h2>{% render_model post "title" %}</h2>
-        {% block blog_meta %}
-            {% include "djangocms_blog/includes/blog_meta.html" %}
-        {% endblock %}
-    </header>
-    {% if post.main_image_id %}
-    <div class="blog-visual">
-        {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-        <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+    <!-- Fbook button script // And I still believe facebook would better help the world by paying its due taxes, worldwide -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+<div id="europostpage">
+    <div id="europost" id="post-{{ post.slug }}" >
+        <div class="europostentry">
+            <span class="europostdate">{{ post.date_published|date:"DATE_FORMAT" }}</span>
+
+            <div class="europosttitle">{{ post.title }}</div>
+
+            {% if post.main_image_id %}
+                <div class="blog-visual">
+                <img src="{{ post.main_image.url }}" alt="{{ post.main_image.default_alt_text }}" height="auto" width="100%" />
+                </div>
+            {% endif %}
+
+        <div class="europostbody">
+            {% render_model post "abstract" %}
+        </div>
+
+        <div class="europostwords">
+        {% if post.tags.exists %}
+             <div>Tags:
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'djangocms_blog:posts-tagged' tag=tag.slug %}" class="europlink">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        {% endif %}
+            <br /></div>
+            related galleries: <a class="postlink" href="index.html">Brise-Lame (corrugated steel version)</a>
+        </div>&nbsp;<br />
+
+
+        <div class="postbutton">
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- Your share button code  // And I still believe facebook would better help the world by paying its due taxes, worldwide -->
+
+            <div class="fb-share-button" data-href="http://www.theselection.net/dev/post.html" data-layout="button">  </div>
+	        <span>&nbsp;</span>
+            <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="looseserendipty">Tweet</a>
+        </div>
+
+        <div class="eurobackbutton">
+            <a class="europlink" href="blog.html">Back to blog</a> - <a class="europlink">Print page</a>
+        </div>
+
     </div>
-    {% endif %}
-    {% endspaceless %}
-    {% if post.app_config.use_placeholder %}
-        <div class="blog-content">{% render_placeholder post.content %}</div>
-    {% else %}
-        <div class="blog-content">{% render_model post "post_text" "post_text" %}</div>
-    {% endif %}
-</article>
-{% endblock content_blog %}
+        &nbsp;<br />
+        &nbsp;<br />
+        <div class="pinkspacerblog">&nbsp;</div>
+    </div>
+
+            <div class="europostbox">
+        <a class="europostboxtitle europtitllink" href="europesquare-post.html">This is another title of a post<a>
+        <img class="europostboxthumb" src="../static/pic/show/pic_et_terre/9-rsi.JPG" />
+        <p class="europostboxbody"> "R.S.I.", Borromean knot made of rings for rockslide protection nets max 120 signs ...</p>
+        </div>
+
+        <div class="europostbox">
+        <a class="europostboxtitle europtitllink" href="europesquare-post.html">This is another title of a post<a>
+        <img class="europostboxthumb" src="../static/pic/show/pic_et_terre/9-rsi.JPG" />
+        <p class="europostboxbody"> "R.S.I.", Borromean knot made of rings for rockslide protection nets max 120 signs ...</p>
+        </div>
+
+        <div class="europostbox">
+        <a class="europostboxtitle europtitllink" href="europesquare-post.html">This is another title of a post<a>
+        <img class="europostboxthumb" src="../static/pic/show/pic_et_terre/9-rsi.JPG" />
+        <p class="europostboxbody"> "R.S.I.", Borromean knot made of rings for rockslide protection nets max 120 signs ...</p>
+        </div>
+
+</div>
+
+{% endspaceless %}
+{% endblock %}

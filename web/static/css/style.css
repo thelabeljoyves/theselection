@@ -80,7 +80,7 @@ only screen and (max-device-width : 1990px){
 	font-family:acid;
 	font-size:16px;
 	color:#666;
-	text-align:center
+	text-align:center;
 }
 
  /* MQ for europesquare*/
@@ -492,7 +492,7 @@ a.externlink[href^="https://"]:after {
 
 .menutable {
 	width: 100%;
-	height: 70px;
+	height: 69px;
 	padding: 0px;
 	border: 0px;
 	padding:0px;
@@ -503,6 +503,7 @@ a.externlink[href^="https://"]:after {
 	width:25%;
 	text-align:center;
 	padding:0px;
+	line-height: 17px;
 }
 
 .menuitemup {
@@ -626,6 +627,7 @@ a.externlink[href^="https://"]:after {
 .catitem {
 	font-family:acid-med;
 	font-size:18px;
+	list-style:none;
 }
 
 .entrypage {
@@ -724,6 +726,14 @@ a.externlink[href^="https://"]:after {
 	color:black;
 }
 
+.eurointro {
+	padding: 15px;
+	font-family:rectalite;
+	letter-spacing:0.5px;
+	font-size:14px;
+	line-height:17px;
+	color:black;
+}
 
 .eurogrid {
 	top:6px;
@@ -841,7 +851,7 @@ a.externlink[href^="https://"]:after {
 
 .pinkspacerblog {
 	height:50px;
-	background-color:#E4CCD5;
+	background-color:#fff3de;
 }
 
 .europostbox {
